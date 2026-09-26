@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Simulador de Fotosíntesis</title>
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="header">
+        <div>
+            <span class="etiqueta">SIMULADOR EDUCATIVO</span>
+            <h1>🌱 Simulador de Fotosíntesis</h1>
+            <p>
+                Experimenta con la luz, el agua y el CO₂
+                y observa cómo afectan a una planta.
+            </p>
+        </div>
+    </header>
+
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="contenedor">
+
+        <!-- PANEL DE CONTROLES -->
+        <section class="panel controles">
+
+            <h2>⚙️ Condiciones ambientales</h2>
+
+            <p class="descripcion">
+                Modifica las condiciones y observa cómo cambia la planta.
+            </p>
+
+
+            <!-- LUZ -->
+            <div class="control-grupo">
+
+                <h3>☀️ Luz</h3>
+
+                <div class="botones">
+
+                    <button
+                        class="btn-control"
+                        onclick="cambiarLuz('baja')">
+                        🌥️ Baja
+                    </button>
+
+                    <button
+                        class="btn-control activo"
+                        onclick="cambiarLuz('media')">
+                        ☀️ Media
+                    </button>
+
+                    <button
+                        class="btn-control"
+                        onclick="cambiarLuz('alta')">
+                        🔆 Alta
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- AGUA -->
+            <div class="control-grupo">
+
+                <h3>💧 Agua</h3>
+
+                <div class="botones">
+
+                    <button
+                        class="btn-control"
+                        onclick="cambiarAgua('baja')">
+                        💧 Baja
+                    </button>
+
+                    <button
+                        class="btn-control activo"
+                        onclick="cambiarAgua('media')">
+                        💦 Media
+                    </button>
+
+                    <button
+                        class="btn-control"
+                        onclick="cambiarAgua('alta')">
+                        🌊 Alta
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- CO2 -->
+            <div class="control-grupo">
+
+                <h3>🌫️ CO₂</h3>
+
+                <div class="botones">
+
+                    <button
+                        class="btn-control"
+                        onclick="cambiarCO2('bajo')">
+                        🌫️ Bajo
+                    </button>
+
+                    <button
+                        class="btn-control activo"
+                        onclick="cambiarCO2('medio')">
+                        🌫️ Medio
+                    </button>
+
+                    <button
+                        class="btn-control"
+                        onclick="cambiarCO2('alto')">
+                        🌫️ Alto
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ESTADO -->
+            <div class="estado-box">
+
+                <span>Estado actual</span>
+
+                <strong id="estado">
+                    🌿 Condiciones adecuadas
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ESCENA DE LA PLANTA -->
+        <section class="panel escena-panel">
+
+            <div class="titulo-escena">
+
+                <div>
+                    <h2>🌱 Planta</h2>
+
+                    <p>
+                        Observa cómo responde a los cambios.
+                    </p>
+                </div>
+
+                <div
+                    id="porcentaje"
+                    class="porcentaje">
+                    100%
+                </div>
+
+            </div>
+
+
+            <div class="escena" id="escena">
+
+                <!-- SOL -->
+                <div
+                    id="sol"
+                    class="sol">
+                    ☀️
+                </div>
+
+
+                <!-- RAYOS DEL SOL -->
+                <div class="rayos">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <!-- PARTICULAS CO2 -->
+                <div class="co2-particulas">
+
+                    <span class="co2">CO₂</span>
+                    <span class="co2">CO₂</span>
+                    <span class="co2">CO₂</span>
+                    <span class="co2">CO₂</span>
+                    <span class="co2">CO₂</span>
+
+                </div>
+
+
+                <!-- GOTAS DE AGUA -->
+                <div class="agua-particulas">
+
+                    <span class="gota">💧</span>
+                    <span class="gota">💧</span>
+                    <span class="gota">💧</span>
+                    <span class="gota">💧</span>
+
+                </div>
+
+
+                <!-- TEXTO DE APARIENCIA -->
+                <div
+                    id="aparienciaPlanta"
+                    class="apariencia-planta">
+
+                    🌿 Planta saludable
+
+                </div>
+
+
+                <!-- PLANTA -->
+                <div
+                    class="planta"
+                    id="planta">
+
+                    <!-- HOJAS -->
+                    <div class="hoja hoja1"></div>
+                    <div class="hoja hoja2"></div>
+                    <div class="hoja hoja3"></div>
+
+                    <!-- TALLO -->
+                    <div class="tallo"></div>
+
+                    <!-- RAÍCES -->
+                    <div class="raiz raiz1"></div>
+                    <div class="raiz raiz2"></div>
+                    <div class="raiz raiz3"></div>
+
+                    <!-- MACETA -->
+                    <div class="maceta"></div>
+
+                </div>
+
+
+                <!-- OXÍGENO -->
+                <div class="oxigeno-particulas">
+
+                    <span class="o2">O₂</span>
+                    <span class="o2">O₂</span>
+                    <span class="o2">O₂</span>
+                    <span class="o2">O₂</span>
+
+                </div>
+
+
+                <!-- SUELO -->
+                <div class="suelo"></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- RESULTADOS -->
+        <section class="panel resultados">
+
+            <h2>📊 Resultado de la fotosíntesis</h2>
+
+            <div class="resultado-item">
+
+                <div class="resultado-titulo">
+
+                    <span>💨 Oxígeno producido</span>
+
+                    <strong id="oxigenoValor">
+                        100%
+                    </strong>
+
+                </div>
+
+                <div class="barra">
+
+                    <div
+                        id="oxigenoBarra"
+                        class="barra-progreso oxigeno"
+                        style="width: 100%;">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="resultado-item">
+
+                <div class="resultado-titulo">
+
+                    <span>🍬 Glucosa producida</span>
+
+                    <strong id="glucosaValor">
+                        100%
+                    </strong>
+
+                </div>
+
+                <div class="barra">
+
+                    <div
+                        id="glucosaBarra"
+                        class="barra-progreso glucosa"
+                        style="width: 100%;">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FACTOR LIMITANTE -->
+
+            <div class="factor-box">
+
+                <span>⚠️ Factor limitante</span>
+
+                <strong id="factorLimitante">
+                    Ninguno
+                </strong>
+
+            </div>
+
+
+            <!-- CONCLUSIÓN -->
+
+            <div class="conclusion-box">
+
+                <h3>💡 Conclusión</h3>
+
+                <p id="conclusion">
+
+                    La planta tiene condiciones adecuadas
+                    para realizar la fotosíntesis.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- EXPERIMENTO -->
+        <section class="panel experimento">
+
+            <h2>🧪 Modo experimento</h2>
+
+            <p>
+                Selecciona una condición y observa qué sucede
+                cuando cambia.
+            </p>
+
+
+            <div class="experimentos-botones">
+
+                <button
+                    onclick="iniciarExperimento('luz')">
+                    ☀️ Experimentar con luz
+                </button>
+
+                <button
+                    onclick="iniciarExperimento('agua')">
+                    💧 Experimentar con agua
+                </button>
+
+                <button
+                    onclick="iniciarExperimento('co2')">
+                    🌫️ Experimentar con CO₂
+                </button>
+
+            </div>
+
+
+            <div
+                id="resultadoExperimento"
+                class="resultado-experimento">
+
+                Selecciona un experimento para comenzar.
+
+            </div>
+
+
+            <button
+                class="btn-reiniciar"
+                onclick="reiniciar()">
+
+                🔄 Reiniciar simulación
+
+            </button>
+
+        </section>
+
+
+
+        <!-- FORMULA -->
+        <section class="panel formula">
+
+            <h2>🧬 Fórmula de la fotosíntesis</h2>
+
+            <div class="formula-text">
+
+                <span>6 CO₂</span>
+
+                <span>+</span>
+
+                <span>6 H₂O</span>
+
+                <span>+</span>
+
+                <span>☀️ Luz</span>
+
+                <span>→</span>
+
+                <span>C₆H₁₂O₆</span>
+
+                <span>+</span>
+
+                <span>6 O₂</span>
+
+            </div>
+
+
+            <p>
+
+                Las plantas utilizan dióxido de carbono,
+                agua y energía luminosa para producir
+                glucosa y liberar oxígeno.
+
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE -->
+    <footer>
+
+        <p>
+            🌱 Simulador educativo de fotosíntesis
+        </p>
+
+        <p>
+            Proyecto escolar
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

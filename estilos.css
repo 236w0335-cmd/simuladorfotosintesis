@@ -1,0 +1,1355 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef8f0,
+            #f7fbf7
+        );
+
+    color: #24352a;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   ENCABEZADO
+   ========================================= */
+
+.header {
+
+    padding: 35px 8%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #174d2b,
+            #287a43
+        );
+
+    color: white;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.12);
+}
+
+.header h1 {
+
+    font-size: 36px;
+
+    margin: 8px 0;
+}
+
+.header p {
+
+    font-size: 16px;
+
+    opacity: .9;
+}
+
+.etiqueta {
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    opacity: .8;
+}
+
+
+/* =========================================
+   CONTENEDOR
+   ========================================= */
+
+.contenedor {
+
+    width: 92%;
+
+    max-width: 1250px;
+
+    margin: 30px auto;
+
+    display: grid;
+
+    grid-template-columns:
+        320px
+        1fr;
+
+    gap: 22px;
+}
+
+
+/* =========================================
+   PANELES
+   ========================================= */
+
+.panel {
+
+    background:
+        rgba(255,255,255,.88);
+
+    border-radius: 22px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 10px 30px rgba(38,77,50,.08);
+
+    border:
+        1px solid rgba(46,125,50,.08);
+}
+
+.panel h2 {
+
+    color: #205d35;
+
+    margin-bottom: 8px;
+}
+
+.descripcion {
+
+    color: #718078;
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   CONTROLES
+   ========================================= */
+
+.control-grupo {
+
+    margin-bottom: 25px;
+}
+
+.control-grupo h3 {
+
+    margin-bottom: 12px;
+
+    font-size: 16px;
+}
+
+.botones {
+
+    display: flex;
+
+    gap: 7px;
+}
+
+.btn-control {
+
+    flex: 1;
+
+    border: none;
+
+    padding: 10px 5px;
+
+    border-radius: 12px;
+
+    background: #edf4ef;
+
+    color: #31513a;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    transition: .25s;
+}
+
+.btn-control:hover {
+
+    transform: translateY(-2px);
+
+    background: #dceee1;
+}
+
+.btn-control.activo {
+
+    background: #2e7d4f;
+
+    color: white;
+
+    box-shadow:
+        0 5px 12px rgba(46,125,79,.25);
+}
+
+
+/* =========================================
+   ESTADO
+   ========================================= */
+
+.estado-box {
+
+    margin-top: 25px;
+
+    padding: 17px;
+
+    border-radius: 15px;
+
+    background: #edf8ef;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.estado-box span {
+
+    font-size: 12px;
+
+    color: #748078;
+}
+
+.estado-box strong {
+
+    color: #24703b;
+}
+
+
+/* =========================================
+   ESCENA
+   ========================================= */
+
+.escena-panel {
+
+    min-height: 520px;
+}
+
+.titulo-escena {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+.titulo-escena p {
+
+    color: #77847c;
+
+    font-size: 14px;
+}
+
+.porcentaje {
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #2e7d4f;
+
+    background: #e8f5eb;
+
+    padding: 10px 15px;
+
+    border-radius: 15px;
+}
+
+
+/* =========================================
+   ESCENARIO
+   ========================================= */
+
+.escena {
+
+    position: relative;
+
+    height: 420px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            #cfeeff 0%,
+            #eaf8ff 55%,
+            #d8efd2 55%,
+            #b8dba9 100%
+        );
+}
+
+
+/* =========================================
+   SOL
+   ========================================= */
+
+.sol {
+
+    position: absolute;
+
+    top: 30px;
+
+    right: 45px;
+
+    font-size: 70px;
+
+    z-index: 2;
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
+    filter:
+        drop-shadow(
+            0 0 18px rgba(255,190,0,.35)
+        );
+}
+
+
+/* =========================================
+   RAYOS
+   ========================================= */
+
+.rayos span {
+
+    position: absolute;
+
+    width: 100px;
+
+    height: 3px;
+
+    background: rgba(255,190,0,.35);
+
+    transform-origin: right center;
+
+    right: 95px;
+
+    top: 90px;
+
+    border-radius: 10px;
+
+    animation:
+        rayosMovimiento 2s infinite alternate;
+}
+
+.rayos span:nth-child(1) {
+    transform: rotate(20deg);
+}
+
+.rayos span:nth-child(2) {
+    transform: rotate(35deg);
+}
+
+.rayos span:nth-child(3) {
+    transform: rotate(50deg);
+}
+
+.rayos span:nth-child(4) {
+    transform: rotate(65deg);
+}
+
+.rayos span:nth-child(5) {
+    transform: rotate(80deg);
+}
+
+@keyframes rayosMovimiento {
+
+    from {
+        opacity: .3;
+    }
+
+    to {
+        opacity: .8;
+    }
+}
+
+
+/* =========================================
+   APARIENCIA DE LA PLANTA
+   ========================================= */
+
+.apariencia-planta {
+
+    position: absolute;
+
+    top: 18px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background:
+        rgba(255,255,255,.88);
+
+    padding:
+        8px 16px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.08);
+
+    z-index: 20;
+
+    transition: .5s;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   PLANTA
+   ========================================= */
+
+.planta {
+
+    --escala-planta: 1;
+
+    --inclinacion-planta: 0deg;
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 55px;
+
+    width: 180px;
+
+    height: 270px;
+
+    transform:
+        translateX(-50%)
+        scale(var(--escala-planta))
+        rotate(var(--inclinacion-planta));
+
+    transform-origin: bottom center;
+
+    transition:
+        transform .8s ease,
+        filter .8s ease;
+
+    z-index: 8;
+}
+
+
+/* =========================================
+   TALLO
+   ========================================= */
+
+.tallo {
+
+    position: absolute;
+
+    width: 18px;
+
+    height: 160px;
+
+    background: #3e8e41;
+
+    bottom: 70px;
+
+    left: 81px;
+
+    border-radius: 20px;
+
+    transition: .8s;
+}
+
+
+/* =========================================
+   HOJAS
+   ========================================= */
+
+.hoja {
+
+    position: absolute;
+
+    width: 80px;
+
+    height: 42px;
+
+    background: #4caf50;
+
+    border-radius:
+        80% 10% 80% 10%;
+
+    transition:
+        .8s ease;
+
+    box-shadow:
+        inset -5px -5px 8px
+        rgba(0,0,0,.08);
+}
+
+.hoja1 {
+
+    left: 15px;
+
+    bottom: 165px;
+
+    transform: rotate(-25deg);
+}
+
+.hoja2 {
+
+    right: 10px;
+
+    bottom: 130px;
+
+    transform: rotate(25deg);
+}
+
+.hoja3 {
+
+    left: 50px;
+
+    bottom: 200px;
+
+    transform: rotate(-5deg);
+}
+
+
+/* =========================================
+   RAÍCES
+   ========================================= */
+
+.raiz {
+
+    position: absolute;
+
+    width: 65px;
+
+    height: 8px;
+
+    background: #8b5e3c;
+
+    border-radius: 20px;
+
+    bottom: 52px;
+
+    left: 58px;
+
+    transform-origin: left center;
+}
+
+.raiz1 {
+
+    transform: rotate(25deg);
+}
+
+.raiz2 {
+
+    transform:
+        rotate(-25deg)
+        translateY(8px);
+}
+
+.raiz3 {
+
+    transform:
+        rotate(5deg)
+        translateY(15px);
+}
+
+
+/* =========================================
+   MACETA
+   ========================================= */
+
+.maceta {
+
+    position: absolute;
+
+    width: 110px;
+
+    height: 75px;
+
+    left: 35px;
+
+    bottom: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d8895c,
+            #b96542
+        );
+
+    clip-path:
+        polygon(
+            5% 0,
+            95% 0,
+            80% 100%,
+            20% 100%
+        );
+
+    border-radius: 5px;
+}
+
+
+/* =========================================
+   SUELO
+   ========================================= */
+
+.suelo {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 60px;
+
+    background:
+        linear-gradient(
+            #9b704d,
+            #795538
+        );
+
+    z-index: 3;
+}
+
+
+/* =========================================
+   ESTADOS DE LA PLANTA
+   ========================================= */
+
+/* Saludable */
+
+#planta.planta-saludable {
+
+    --escala-planta: 1;
+
+    --inclinacion-planta: 0deg;
+
+    filter: saturate(1.1);
+}
+
+#planta.planta-saludable .hoja {
+
+    background: #4caf50;
+}
+
+#planta.planta-saludable .tallo {
+
+    background: #3d8b40;
+}
+
+
+/* Poca luz */
+
+#planta.poca-luz {
+
+    --escala-planta: .94;
+
+    filter:
+        saturate(.7)
+        brightness(.94);
+}
+
+#planta.poca-luz .hoja {
+
+    background: #91a866;
+}
+
+#planta.poca-luz .tallo {
+
+    background: #71834f;
+}
+
+
+/* Mucha luz */
+
+#planta.mucha-luz {
+
+    --escala-planta: 1.03;
+
+    filter: saturate(1.2);
+}
+
+#planta.mucha-luz .hoja {
+
+    background: #48a947;
+}
+
+#planta.mucha-luz .tallo {
+
+    background: #37873b;
+}
+
+
+/* Poca agua */
+
+#planta.poca-agua {
+
+    --escala-planta: .88;
+
+    --inclinacion-planta: 2deg;
+}
+
+#planta.poca-agua .hoja {
+
+    background: #8d9b50;
+}
+
+#planta.poca-agua .hoja1 {
+
+    transform:
+        rotate(18deg)
+        translateY(8px);
+}
+
+#planta.poca-agua .hoja2 {
+
+    transform:
+        rotate(-18deg)
+        translateY(8px);
+}
+
+#planta.poca-agua .hoja3 {
+
+    transform:
+        rotate(10deg)
+        translateY(10px);
+}
+
+#planta.poca-agua .tallo {
+
+    background: #6f7d45;
+}
+
+
+/* Mucha agua */
+
+#planta.mucha-agua {
+
+    --escala-planta: .95;
+
+    filter:
+        saturate(.75);
+}
+
+#planta.mucha-agua .hoja {
+
+    background: #a5a54a;
+}
+
+#planta.mucha-agua .tallo {
+
+    background: #718447;
+}
+
+
+/* Poco CO₂ */
+
+#planta.poco-co2 {
+
+    --escala-planta: .93;
+
+    filter:
+        saturate(.75);
+}
+
+#planta.poco-co2 .hoja {
+
+    background: #719653;
+}
+
+
+/* Mucho CO₂ */
+
+#planta.mucho-co2 {
+
+    filter:
+        saturate(1.15);
+}
+
+#planta.mucho-co2 .hoja {
+
+    background: #43a047;
+}
+
+
+/* =========================================
+   PARTÍCULAS CO₂
+   ========================================= */
+
+.co2 {
+
+    position: absolute;
+
+    color: #526b82;
+
+    font-weight: bold;
+
+    font-size: 13px;
+
+    animation:
+        co2Movimiento 5s infinite linear;
+}
+
+.co2:nth-child(1) {
+
+    left: 15%;
+
+    top: 130px;
+}
+
+.co2:nth-child(2) {
+
+    left: 25%;
+
+    top: 220px;
+
+    animation-delay: 1s;
+}
+
+.co2:nth-child(3) {
+
+    left: 75%;
+
+    top: 180px;
+
+    animation-delay: 2s;
+}
+
+.co2:nth-child(4) {
+
+    left: 85%;
+
+    top: 280px;
+
+    animation-delay: 1.5s;
+}
+
+.co2:nth-child(5) {
+
+    left: 55%;
+
+    top: 120px;
+
+    animation-delay: .5s;
+}
+
+@keyframes co2Movimiento {
+
+    0% {
+
+        transform:
+            translateY(20px);
+
+        opacity: 0;
+    }
+
+    30% {
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translateY(-80px);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   AGUA
+   ========================================= */
+
+.gota {
+
+    position: absolute;
+
+    font-size: 20px;
+
+    animation:
+        aguaMovimiento 3s infinite ease-in;
+}
+
+.gota:nth-child(1) {
+
+    left: 35%;
+
+    bottom: 80px;
+}
+
+.gota:nth-child(2) {
+
+    left: 45%;
+
+    bottom: 90px;
+
+    animation-delay: .7s;
+}
+
+.gota:nth-child(3) {
+
+    left: 55%;
+
+    bottom: 75px;
+
+    animation-delay: 1.3s;
+}
+
+.gota:nth-child(4) {
+
+    left: 65%;
+
+    bottom: 90px;
+
+    animation-delay: 1.8s;
+}
+
+@keyframes aguaMovimiento {
+
+    0% {
+
+        transform:
+            translateY(50px);
+
+        opacity: 0;
+    }
+
+    30% {
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translateY(-80px);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   OXÍGENO
+   ========================================= */
+
+.o2 {
+
+    position: absolute;
+
+    color: #2c8fc4;
+
+    font-weight: bold;
+
+    animation:
+        oxigenoMovimiento 4s infinite ease-out;
+}
+
+.o2:nth-child(1) {
+
+    left: 42%;
+
+    top: 180px;
+}
+
+.o2:nth-child(2) {
+
+    left: 48%;
+
+    top: 200px;
+
+    animation-delay: .8s;
+}
+
+.o2:nth-child(3) {
+
+    left: 55%;
+
+    top: 170px;
+
+    animation-delay: 1.5s;
+}
+
+.o2:nth-child(4) {
+
+    left: 60%;
+
+    top: 210px;
+
+    animation-delay: 2s;
+}
+
+@keyframes oxigenoMovimiento {
+
+    0% {
+
+        transform:
+            translateY(20px);
+
+        opacity: 0;
+    }
+
+    30% {
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translateY(-100px);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   RESULTADOS
+   ========================================= */
+
+.resultados {
+
+    grid-column: 1 / -1;
+}
+
+.resultado-item {
+
+    margin-top: 20px;
+}
+
+.resultado-titulo {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+}
+
+.barra {
+
+    width: 100%;
+
+    height: 13px;
+
+    background: #e8eee9;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.barra-progreso {
+
+    height: 100%;
+
+    border-radius: 20px;
+
+    transition:
+        width .8s ease;
+}
+
+.oxigeno {
+
+    background:
+        linear-gradient(
+            90deg,
+            #43a5d5,
+            #62c2eb
+        );
+}
+
+.glucosa {
+
+    background:
+        linear-gradient(
+            90deg,
+            #f0ad4e,
+            #f4c261
+        );
+}
+
+
+/* =========================================
+   FACTOR LIMITANTE
+   ========================================= */
+
+.factor-box {
+
+    margin-top: 25px;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    background: #fff8e7;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.factor-box span {
+
+    color: #806b36;
+}
+
+.factor-box strong {
+
+    color: #b17b00;
+}
+
+
+/* =========================================
+   CONCLUSIÓN
+   ========================================= */
+
+.conclusion-box {
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    border-radius: 17px;
+
+    background: #eff8f0;
+
+    border-left:
+        5px solid #43a047;
+}
+
+.conclusion-box h3 {
+
+    margin-bottom: 8px;
+
+    color: #28643a;
+}
+
+.conclusion-box p {
+
+    color: #536359;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   EXPERIMENTO
+   ========================================= */
+
+.experimento {
+
+    grid-column: 1 / -1;
+}
+
+.experimentos-botones {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin:
+        20px 0;
+}
+
+.experimentos-botones button {
+
+    flex: 1;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #e5f3e8;
+
+    color: #27643a;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.experimentos-botones button:hover {
+
+    background: #2e7d4f;
+
+    color: white;
+
+    transform:
+        translateY(-2px);
+}
+
+.resultado-experimento {
+
+    padding: 18px;
+
+    background: #f5f8f5;
+
+    border-radius: 15px;
+
+    line-height: 1.6;
+
+    min-height: 65px;
+}
+
+.btn-reiniciar {
+
+    margin-top: 15px;
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #27643a;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   FÓRMULA
+   ========================================= */
+
+.formula {
+
+    grid-column: 1 / -1;
+
+    text-align: center;
+}
+
+.formula-text {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin: 25px 0;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    color: #28643a;
+}
+
+.formula p {
+
+    color: #68756c;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #748078;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media(max-width: 850px) {
+
+    .contenedor {
+
+        grid-template-columns: 1fr;
+    }
+
+    .resultados,
+    .experimento,
+    .formula {
+
+        grid-column: auto;
+    }
+
+    .experimentos-botones {
+
+        flex-direction: column;
+    }
+
+    .header h1 {
+
+        font-size: 28px;
+    }
+}
+
+
+@media(max-width: 500px) {
+
+    .contenedor {
+
+        width: 95%;
+    }
+
+    .panel {
+
+        padding: 18px;
+    }
+
+    .botones {
+
+        flex-direction: column;
+    }
+
+    .escena {
+
+        height: 380px;
+    }
+
+    .apariencia-planta {
+
+        font-size: 11px;
+    }
+}
